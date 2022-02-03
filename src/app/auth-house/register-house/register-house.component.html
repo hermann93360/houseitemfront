@@ -1,0 +1,15 @@
+<form class="margin-primary f-house" [formGroup]="addHouseForm">
+  <div class="flex-column l-content-input">
+    <fa-input class="form-control" type="text" placeholder="Nom de votre maison" formControlName="name"></fa-input>
+    <fa-input class="form-control" type="password" placeholder="Code pour y acceder" formControlName="houseCode" ></fa-input>
+    <fa-input class="form-control" type="password" placeholder="Confirmation" formControlName="confirmation" ></fa-input>
+    <fa-button class="test" #buttonSubmit (click)="addHouse()" value="Enregistrer" icone="../../assets/icoRegister.png"></fa-button>
+  </div>
+</form>
+
+<div [@fade]='displayErrorForm? "open" : "closed" ' class="margin-primary error-text flex-column">
+  <p *ngIf="errorEmptyCase" class="margin-primary">Veuillez remplir toutes les cases</p>
+  <p *ngIf="errorCodeDifferent" class="margin-primary">Les codes ne correspondent pas</p>
+</div>
+
+

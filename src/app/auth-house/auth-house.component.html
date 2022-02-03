@@ -1,0 +1,15 @@
+<div class="l-form">
+  <img class="logo" src="../../../assets/logo.png" alt="logo" />
+
+  <div class="d-line-bottom flex-column margin-primary">
+    <div class="flex-row l-content-input">
+      <fa-button class="flex-item-50" [routerLink]="['/access/register']" routerLinkActive="is-active" value="Enregistrer" icone="../../assets/icoHouseRegister.png" ></fa-button>
+      <fa-button class="flex-item-50" [routerLink]="['/access/connect']" routerLinkActive="is-active" value="Accedez" icone="../../assets/icoHouse.png"></fa-button>
+    </div>
+  </div>
+
+  <div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+  </div>
+
+</div>

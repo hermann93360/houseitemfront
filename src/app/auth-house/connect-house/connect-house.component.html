@@ -1,0 +1,11 @@
+<form class="margin-primary f-house" [formGroup]="connectHouseForm">
+  <div class="flex-column l-content-input">
+    <fa-input class="form-control" type="text" placeholder="Nom de votre maison" formControlName="name"></fa-input>
+    <fa-input class="form-control" type="password" placeholder="Code pour y acceder" formControlName="houseCode" ></fa-input>
+    <fa-button (click)="connectHouse()" value="Acceder" icone="../../assets/icoKey.png"></fa-button>
+  </div>
+</form>
+
+<div [@fade]='displayErrorForm? "open" : "closed" ' class="margin-primary error-text flex-column">
+  <p class="margin-primary">Veuillez remplir toutes les cases</p>
+</div>

@@ -1,0 +1,37 @@
+.l-form {
+  width: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+
+  .logo{
+    width: 200px;
+    align-self: center;
+  }
+}
+
+.f-house{
+  display: flex;
+  flex-direction: column;
+}
+
+.l-content-input{
+  background-color: #f5f5f5;
+  border-radius: 3px;
+}
+
+.hide{
+  display: none;
+}
+
+.error-text{
+  color: #ff5d5d;
+}
+@media screen and (min-width: 750px) {
+  .l-form{
+    width: 650px;
+    margin: 40px auto 0 auto;
+
+  }
+}

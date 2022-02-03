@@ -1,0 +1,7 @@
+<div class="l-input">
+  <input #valInput [type]="type"
+         [placeholder]="placeholder"
+         [value]="value"
+         (keyup)="changeValue(valInput.value); validator(valInput.value)"
+         [class]="className"/>
+</div>

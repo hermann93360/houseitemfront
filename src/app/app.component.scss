@@ -1,0 +1,38 @@
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-item-50{
+  width: 50%;
+}
+
+.margin-primary{
+  margin: 8px;
+}
+
+.d-line-top::before{
+  bottom: 0;
+  content: '';
+  height: 4px;
+  width: 200px;
+  border-radius: 10px;
+  background: #103b52;
+  margin: 0 auto 10px auto;
+}
+
+.d-line-bottom::after{
+  bottom: 0;
+  content: '';
+  height: 4px;
+  width: 200px;
+  border-radius: 10px;
+  background: #103b52;
+  margin: 10px auto 0px auto;
+}
+
