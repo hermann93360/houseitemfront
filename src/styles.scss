@@ -1,9 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 body {
   margin: 0;
   font-family: montLight, "Helvetica Neue", sans-serif;
+  background-color: #fdfdfd;
 }
 p{
   margin: 0;
@@ -46,5 +49,110 @@ p{
   -moz-transition: all 200ms ease-in-out;
   -ms-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
+  -webkit-appearance: none;
   outline: none;
+}
+
+
+.l-form{
+  position: absolute;
+  width: 100%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  top: 40px;
+
+  .logo{
+    width: 200px;
+    align-self: center;
+  }
+}
+.error-text{
+  color: #ff5d5d;
+  font-size: 10px;
+}
+
+@media screen and (min-width: 750px) {
+  .l-form{
+    width: 650px;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 40px);
+  }
+  .error-text{
+    font-size: 15px;
+  }
+}
+
+.scrollNone{
+  overflow: hidden;
+}
+.router-outlet{
+  height: 100%;
+}
+.center-flex{
+  align-items: center;
+}
+.center-flex-dir{
+  justify-content: center;
+}
+
+.center{
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-item-50{
+  width: 50%;
+}
+.spaceTop{
+  margin-top: 20px;
+}
+.margin-primary{
+  margin: 8px;
+}
+
+.d-line-bottom::after{
+  bottom: 0;
+  content: '';
+  height: 4px;
+  width: 200px;
+  border-radius: 10px;
+  background: #103b52;
+  margin: 10px auto 0px auto;
+}
+.l-content-input{
+  background-color: #f5f5f5;
+  border-radius: 3px;
+}
+.ico{
+  width: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+
+h4{
+  font-family: couture;
+  margin: 3px;
+  font-size: 18px;
+}
+@media screen and (min-width: 750px) {
+  h4{
+    font-family: couture;
+    margin: 3px;
+    font-size: 14px;
+  }
 }

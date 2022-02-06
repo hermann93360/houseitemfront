@@ -1,0 +1,13 @@
+.l-section{
+  padding: 5px;
+}
+.l-content-text{
+  font-family: montLight;
+  font-size: 17px;
+  text-align: justify;
+}
+@media screen and (min-width: 750px) {
+  .l-content-text{
+    font-size: 13px;
+  }
+}

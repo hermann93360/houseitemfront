@@ -7,5 +7,6 @@
 </form>
 
 <div [@fade]='displayErrorForm? "open" : "closed" ' class="margin-primary error-text flex-column">
-  <p class="margin-primary">Veuillez remplir toutes les cases</p>
+  <p *ngIf="errorEmptyCase" class="margin-primary">Veuillez remplir toutes les cases</p>
+  <p *ngIf="errorConnect" class="margin-primary">Veuillez verifier le nom ainsi que le code</p>
 </div>

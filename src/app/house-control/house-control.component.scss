@@ -1,0 +1,25 @@
+.page-content{
+  position: absolute;
+  top: 70px;
+  width: 100%;
+}
+.litle-title{
+  margin: 9px;
+  font-size: 13px;
+  font-family: comfortaLight;
+}
+
+.pagination{
+  margin: 8px;
+  p{
+    font-family: comfortaLight;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background-color: #112632;
+    padding: 8px;
+    width: 150px;
+    border-radius: 10px;
+
+  }
+}

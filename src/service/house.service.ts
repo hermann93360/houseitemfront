@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 })
 export class HouseService {
 
-  private URL = "http://localhost:8080";
+  private URL = "http://192.168.1.9:8080";
 
   public currentIDHouse!: string;
 

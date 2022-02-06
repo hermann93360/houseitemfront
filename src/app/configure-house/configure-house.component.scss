@@ -1,0 +1,25 @@
+.l-welcome{
+  font-size: 20px;
+}
+.l-info-configure{
+  position: relative;
+  border: 1px solid red;
+}
+.l-section, fa-text{
+  width: 100%;
+}
+.underNav{
+  z-index: -2;
+}
+@media screen and (min-width: 750px) {
+  .l-content-text{
+    font-size: 13px;
+  }
+  .l-section, fa-text{
+    max-width: 550px;
+  }
+  .l-welcome{
+    font-size: 14px;
+  }
+
+}

@@ -23,6 +23,8 @@ export class ConnectHouseComponent implements OnInit {
   public values: string;
 
   public displayErrorForm: boolean = false;
+  public errorConnect: boolean = false;
+  public errorEmptyCase: boolean = false;
 
   @ViewChildren(InputComponent) inputSubmit: QueryList<InputComponent> | undefined;
 
@@ -41,8 +43,6 @@ export class ConnectHouseComponent implements OnInit {
   }
 
   connectHouse(): void{
-    console.log('pasvdddd')
-
     if(this.connectHouseForm.valid){
       const values = this.connectHouseForm.value;
 
@@ -53,17 +53,26 @@ export class ConnectHouseComponent implements OnInit {
 
       this.houseService.connectHouse(houseDto).subscribe(
         (value) => {
-          console.log(value);
-
           this.houseService.saveIdHouse(value);
+        },
+        (error) => {
+          this.errorInForm();
+          this.errorEmptyCase = false;
+          this.errorConnect = true;
         }
       )
     }else{
-      this.inputSubmit?.forEach(
-        (acc) => acc.changeAppearanceInputError()
-      )
-      this.displayErrorForm = true;
+      this.errorInForm();
+      this.errorEmptyCase = true;
+      this.errorConnect = false
     }
+  }
+
+  errorInForm(): void{
+    this.displayErrorForm = true;
+    this.inputSubmit?.forEach(
+      (acc) => acc.changeAppearanceInputError()
+    )
   }
 
 }

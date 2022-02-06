@@ -1,0 +1,51 @@
+<p class="margin-primary">Dites moi quel objet vous cherchez</p>
+<div class="l-content-input flex-column">
+  <fa-input type="text" placeholder="Rechercher"></fa-input>
+</div>
+
+<div class="margin-primary l-notification flex-column">
+  <div class="n-header flex-column">
+    <h4>Mes alertes</h4>
+    <p>Afin de vous prévenir quand est ce qu'il est temps de faire les course
+      Remplissez votre liste de type</p>
+  </div>
+  <div class="n-footer flex-row center-flex">
+    <p> Remplir </p>
+    <img  class="ico" src="assets/arrowRight.png" alt="arrow">
+  </div>
+</div>
+
+
+  <p class="litle-title spaceTop">Ce que je possède</p>
+
+<div class="content-all-item l-content-input flex-column margin-primary">
+  <div (click)="displayFormItem()" class="l-item-house flex-column center-flex center-flex-dir">
+    <img class="ico" src="../../../assets/add.png" />
+
+    <p>Ajoutez une course</p>
+  </div>
+  <app-item *ngFor="let item of items"
+            [name]="item.name"
+            [quantity]="item.quantity"
+            [id_item]="item.id_item || ''"></app-item>
+
+  <div *ngIf="items.length > 0" class="flex-row center-flex-dir pagination">
+    <p> Voir plus </p>
+  </div>
+</div>
+
+<div [@up]="displayFormAddItem ? 'open' : 'closed' " class="l-form-item">
+  <div (click)="displayFormItem()" class="close">
+    <img class="ico" src="https://img.icons8.com/ios-filled/50/000000/delete-sign--v1.png"/>
+  </div>
+
+  <h4 class="litle-title flex-row center-flex margin-primary">Ajoutez un nouvelle objet
+    <img class="ico" src="https://img.icons8.com/stickers/100/000000/plus.png"/>
+  </h4>
+  <form class="" [formGroup]="formItem" >
+    <fa-input type="text" placeholder="Nom de l'article" identification="addButton" formControlName="name"></fa-input>
+    <fa-input type="number" placeholder="Quantité" identification="addButton" formControlName="quantity"></fa-input>
+    <fa-button (click)="addItem($event)" value="Ajouter" icone="https://img.icons8.com/stickers/100/000000/geta.png"></fa-button>
+  </form>
+</div>
+

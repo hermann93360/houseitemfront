@@ -15,9 +15,23 @@ import {RouterModule, Routes} from "@angular/router";
 import { RegisterHouseComponent } from './auth-house/register-house/register-house.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
+import { ConfigureHouseComponent } from './configure-house/configure-house.component';
+import { TextComponent } from './elements/text/text.component';
+import { HouseControlComponent } from './house-control/house-control.component';
+import { ItemControlComponent } from './house-control/item-control/item-control.component';
+import { ItemComponent } from './house-control/item/item.component';
 
 const appRoutes: Routes = [
-  { path: 'access', component: AuthHouseComponent,
+  { path: 'configure', component: ConfigureHouseComponent, data: {animation: 'configure'}, },
+  { path: 'houseControl', component: HouseControlComponent, data: {animation: 'houseControl'},
+    children: [
+      {
+        path: 'item',
+        component: ItemControlComponent,
+        data: {animation: 'itemControl'}
+      }
+    ]},
+  { path: 'access', component: AuthHouseComponent, data: {animation: 'access'},
     children: [
       {
         path: 'connect',
@@ -49,7 +63,12 @@ const appRoutes: Routes = [
     ButtonComponent,
     AuthHouseComponent,
     RegisterHouseComponent,
-    HomeComponent
+    HomeComponent,
+    ConfigureHouseComponent,
+    TextComponent,
+    HouseControlComponent,
+    ItemControlComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,

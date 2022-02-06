@@ -27,6 +27,9 @@ export class InputComponent implements ControlValueAccessor, OnInit {
   @Input()
   public placeholder: string = "";
 
+  @Input()
+  public identification: string = "";
+
   public className: string = "";
 
   public value: string = "";

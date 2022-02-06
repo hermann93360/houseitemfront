@@ -10,6 +10,7 @@
 <div [@fade]='displayErrorForm? "open" : "closed" ' class="margin-primary error-text flex-column">
   <p *ngIf="errorEmptyCase" class="margin-primary">Veuillez remplir toutes les cases</p>
   <p *ngIf="errorCodeDifferent" class="margin-primary">Les codes ne correspondent pas</p>
+  <p *ngIf="errorHouseExist" class="margin-primary">Cette maison existe déja, Choisissez un autre nom</p>
 </div>
 
 

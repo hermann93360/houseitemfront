@@ -28,6 +28,7 @@ export class RegisterHouseComponent implements OnInit {
   public displayErrorForm: boolean = false;
   public errorEmptyCase: boolean = false;
   public errorCodeDifferent: boolean = false;
+  public errorHouseExist: boolean = false;
 
   @ViewChildren(InputComponent) inputSubmit: QueryList<InputComponent> | undefined;
 
@@ -60,29 +61,37 @@ export class RegisterHouseComponent implements OnInit {
 
         this.houseService.addHouse(houseDto).subscribe(
           (value) => {
-            console.log(value);
+            this.router.navigate(['/configure']);
+          },
+          (error) => {
+            this.errorInForm();
+            this.errorHouseExist = true;
+            this.errorCodeDifferent = false;
+            this.errorEmptyCase = false;
           }
         )
       }else{
-        this.inputSubmit?.forEach(
-          (acc) => acc.changeAppearanceInputError()
-        )
-
-        this.displayErrorForm = true;
+        this.errorInForm();
         this.errorCodeDifferent = true;
         this.errorEmptyCase = false;
+        this.errorHouseExist = false;
 
       }
     }else{
-      this.inputSubmit?.forEach(
-        (acc) => acc.changeAppearanceInputError()
-      )
-      this.displayErrorForm = true;
+      this.errorInForm();
       this.errorEmptyCase = true;
       this.errorCodeDifferent = false;
+      this.errorHouseExist = false;
 
     }
 
+  }
+
+  errorInForm(): void{
+    this.displayErrorForm = true;
+    this.inputSubmit?.forEach(
+      (acc) => acc.changeAppearanceInputError()
+    )
   }
 
 }
