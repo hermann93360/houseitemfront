@@ -1,0 +1,53 @@
+<p class="margin-primary">Dites moi quel objet vous cherchez</p>
+<div class="l-content-input flex-column">
+  <fa-input #search (keyup)="searchItem(search.value)" type="text" placeholder="Rechercher"></fa-input>
+</div>
+
+<div (click)="displayForm()" class="l-content-input margin-primary flex-column center-flex-dir">
+  <fa-button value="faire ma liste de course" icone="https://img.icons8.com/stickers/100/000000/shopping-cart.png"></fa-button>
+</div>
+
+<p class="litle-title spaceTop flex-row center-flex">
+  Ma course à faire
+  <img class="ico" src="https://img.icons8.com/stickers/100/000000/shopping-bag.png"/>
+</p>
+
+
+<div class="l-content-input flex-column margin-primary">
+  <div *ngFor="let shopping of listShopping" class="shopping">
+    <div class="h-shopping">
+      {{shopping.name}}
+    </div>
+    <div class="f-shopping" (click)="displayList()">
+      Voir
+    </div>
+
+    <div @windowAnimation *ngIf="displayShoppingList" class="course">
+      <div class="container-course">
+        {{shopping.name}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="litle-title spaceTop flex-row center-flex">
+  Mes courses archivé
+  <img class="ico" src="https://img.icons8.com/stickers/100/000000/shopping-bag.png"/>
+</p>
+
+<div class="container" [@pop]="displayFormAddShopping ? 'open' : 'closed' " *ngIf="displayFormAddShopping" >
+  <div class="bg">
+  </div>
+  <div class="pop" >
+    <div (click)="displayForm()" class="close">
+      <img class="ico" src="https://img.icons8.com/ios-filled/50/000000/delete-sign--v1.png"/>
+    </div>
+    <h4 class="litle-title flex-row center-flex margin-primary">Ajouter une nouvelle liste de course
+      <img class="ico" src="https://img.icons8.com/stickers/100/000000/plus.png"/>
+    </h4>
+    <form [formGroup]="formAddShopping">
+      <fa-input class="form-control" type="text" placeholder="Intitule de la course" formControlName="name"></fa-input>
+      <fa-button (click)="addShopping()" value="Ajouter" icone="https://img.icons8.com/stickers/100/000000/shopping-cart.png" ></fa-button>
+    </form>
+  </div>
+</div>

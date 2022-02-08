@@ -3,32 +3,23 @@
   <fa-input #search (keyup)="searchItem(search.value)" type="text" placeholder="Rechercher"></fa-input>
 </div>
 
-<div class="margin-primary l-notification flex-column">
-  <div class="n-header flex-column">
-    <h4>Mes alertes</h4>
-    <p>Afin de vous prévenir quand est ce qu'il est temps de faire les course
-      Remplissez votre liste de type</p>
-  </div>
-  <div class="n-footer flex-row center-flex">
-    <p> Remplir </p>
-    <img  class="ico" src="assets/arrowRight.png" alt="arrow">
-  </div>
-</div>
-
-
-<p class="litle-title spaceTop flex-row center-flex ">
-  Ce que je possède
-  <img class="ico" src="https://img.icons8.com/stickers/100/000000/shopping-basket-2.png"/>
+<p class="litle-title spaceTop flex-row center-flex">
+  Ma liste de course type
+  <img class="ico" src="https://img.icons8.com/stickers/100/000000/shopping-bag.png"/>
 </p>
 
 <div class="content-all-item l-content-input flex-column margin-primary">
   <app-add (click)="displayFormItem()" ></app-add>
-  <app-item *ngFor="let item of items"
+  <app-item *ngFor="let item of shoppingTypeList.reverse()"
             [name]="item.name"
             [quantity]="item.quantity"
             [id_item]="item.id_item || ''"></app-item>
 
-  <div *ngIf="items.length > 0" class="flex-row center-flex-dir pagination">
+  <div *ngIf="!findItemFromSearch" class="no-exist-item flex-column center-flex center-flex-dir margin-primary">
+    <p class="">"{{search.value}}" n'est pas dans votre liste, cliquez en haut pour le rajouter</p>
+  </div>
+
+  <div *ngIf="shoppingTypeList.length > 0" class="flex-row center-flex-dir pagination">
     <p> Voir plus </p>
   </div>
 </div>
@@ -42,9 +33,8 @@
     <img class="ico" src="https://img.icons8.com/stickers/100/000000/plus.png"/>
   </h4>
   <form class="" [formGroup]="formItem" >
-    <fa-input type="text" class="form-control" placeholder="Nom de l'article" identification="addButton" formControlName="name"></fa-input>
-    <fa-input type="number" class="form-control" placeholder="Quantité" identification="addButton" formControlName="quantity"></fa-input>
+    <fa-input type="text" placeholder="Nom de l'article" identification="addButton" formControlName="name"></fa-input>
+    <fa-input type="number" placeholder="Quantité" identification="addButton" formControlName="quantity"></fa-input>
     <fa-button (click)="addItem($event)" value="Ajouter" icone="https://img.icons8.com/stickers/100/000000/geta.png"></fa-button>
   </form>
 </div>
-

@@ -1,6 +1,6 @@
 .page-content{
   position: absolute;
-  top: 70px;
+  padding-top: 70px;
   width: 100%;
 }
 .litle-title{
@@ -21,5 +21,38 @@
     width: 150px;
     border-radius: 10px;
 
+  }
+}
+
+
+//form item add
+.l-form-item{
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 30px 30px 0 0 ;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0px -18px 21px 0px rgba(175, 175, 175, 0.76);
+  -moz-box-shadow: 0px -18px 21px 0px rgba(175, 175, 175, 0.76);
+  -webkit-box-shadow: 0px -18px 21px 0px rgba(175, 175, 175, 0.76);
+
+  .title-add{
+    font-size: 13px;
+  }
+  .close{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    margin: 10px;
+    cursor: pointer;
+  }
+}
+
+.no-exist-item{
+  p{
+    text-align: center;
+    font-family: interLight;
+    font-size: 12px;
   }
 }

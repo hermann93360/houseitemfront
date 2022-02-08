@@ -33,11 +33,12 @@ export class ItemControlComponent implements OnInit {
   public formItem: FormGroup;
 
   constructor(private itemService: ItemService, @Inject(DOCUMENT) private document: Document, private formBuilder: FormBuilder) {
+    this.initFormItem();
+
   }
 
   ngOnInit(): void {
     this.getItems();
-    this.initFormItem();
   }
 
   getItems(): boolean{
@@ -97,9 +98,26 @@ export class ItemControlComponent implements OnInit {
         this.getItems()
       }
     );
-
     this.formItem.reset();
 
+  }
+
+  searchItem(value: string){
+    this.itemService.getItemsByName(this.id_house, value).subscribe(
+      (value) => {
+        if(value.length == 0 ){
+          this.getItems();
+        }
+        else{
+          this.items = value.map((value: ItemDto) => {
+            return {id_item: value.id_item, name: value.name, quantity: value.quantity}
+          })
+        }
+      },
+      error => {
+        this.getItems();
+      }
+    )
   }
 
 }

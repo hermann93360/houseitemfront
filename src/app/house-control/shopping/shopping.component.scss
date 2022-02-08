@@ -1,0 +1,83 @@
+.container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+
+
+  .pop{
+    position: relative;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 10px 0px rgba(169, 169, 169, 0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(169, 169, 169, 0.75);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(169, 169, 169, 0.75);
+    min-width: 320px;
+    padding: 4px;
+    margin:10px;
+    margin-top: 300px;
+
+
+    .close{
+      img{
+        width: 15px;
+      }
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  }
+}
+.bg{
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: black;
+  opacity: 0.4;
+}
+.shopping{
+  .h-shopping{
+    background-image: url("../../../assets/mag.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    font-family: couture;
+    color: white;
+  }
+  .f-shopping{
+    background-color: #112632;
+    border-radius: 0 0 5px 5px ;
+    padding: 5px;
+    font-family: montLight;
+    font-size: 12px;
+    color: white;
+
+
+  }
+  .course{
+    .container-course{
+      background: white;
+      height: 100%;
+      width: 100%;
+    }
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+  }
+  margin: 5px;
+
+}
+.shopping:hover{
+  box-shadow: 0px 0px 10px 0px rgba(169, 169, 169, 0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(169, 169, 169, 0.75);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(169, 169, 169, 0.75);
+}
