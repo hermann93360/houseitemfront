@@ -1,4 +1,15 @@
-import {animate, animateChild, group, query, stagger, state, style, transition, trigger} from "@angular/animations";
+import {
+  animate,
+  animateChild,
+  group,
+  query,
+  sequence,
+  stagger,
+  state,
+  style,
+  transition,
+  trigger
+} from "@angular/animations";
 
 export const routeAuthHouseAnimamtion = trigger('routeAnimations', [
   transition('register => connect', [
@@ -221,5 +232,85 @@ export const upAddAnimation = trigger('up', [
   transition('closed => open', [
     animate('400ms ease-out')
   ]),
+
+])
+
+export const windowAnimation = trigger('windowAnimation', [
+
+  transition(':enter', [
+    group([
+      sequence([
+        query(".container-course",[
+          style({
+            height: 0,
+            width: 0,
+            opacity: 0
+          }),
+          animate('450ms cubic-bezier(.65,.3,.24,1.64)', style({
+            height: '100%',
+            width: '100%',
+            opacity: 1
+          })),
+        ])
+      ])
+    ])
+
+  ]),
+
+])
+
+export const popAnimation = trigger('pop', [
+  transition(':enter', [
+    group([
+      sequence([
+        query(".pop",[
+          style({
+            marginTop: '600px',
+            opacity: 0
+          }),
+          animate('450ms cubic-bezier(.65,.3,.24,1.64)', style({
+            marginTop: '300px',
+            opacity: 1,
+            zIndex: 3
+          })),
+        ])
+      ]),
+      sequence([
+        query(".bg",[
+        style({
+          opacity: 0
+        }),
+        animate('450ms ease-out', style({
+          opacity: 0.4,
+          zIndex: 2
+        })),
+      ]),
+
+      ])
+    ])
+
+  ]),
+  transition(':leave', [
+    group([
+      sequence([
+      query(".pop",[
+        animate('650ms cubic-bezier(.74,-0.78,.45,.93)', style({
+          marginTop: '600px',
+          opacity: 0
+        })),
+      ])
+    ]),
+      sequence([
+        query(".bg",[
+
+          animate('450ms ease-out', style({
+            opacity: 0
+          })),
+        ]),
+
+      ])
+
+    ])
+  ])
 
 ])

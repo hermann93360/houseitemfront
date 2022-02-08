@@ -16,9 +16,27 @@ export class ItemService {
   getItems(id_house: string): Observable<ItemDto[]>{
     return this.http.get<ItemDto[]>(this.URL + "/items/" + id_house);
   }
+
+  getItemsByName(id_house: string, name: string): Observable<ItemDto[]>{
+    return this.http.get<ItemDto[]>(this.URL + "/items/" + id_house + "/" + name);
+  }
+
+  getItemsShoppingTypeLIst(id_house: string): Observable<ItemDto[]>{
+    return this.http.get<ItemDto[]>(this.URL + "/items/shopping/type/items/" + id_house);
+  }
+
+  getItemsByNameAndShoppingType(id_shopping: string, name: string): Observable<ItemDto[]>{
+    return this.http.get<ItemDto[]>(this.URL + "/items/shopping/type/" + id_shopping + "/" + name);
+  }
+
   addItem(itemDto: ItemDto): Observable<ItemDto>{
     return this.http.post<ItemDto>(this.URL + "/item/add", itemDto);
   }
+
+  addItemInShoppingListType(itemDto: ItemDto): Observable<ItemDto>{
+    return this.http.post<ItemDto>(this.URL + "/item/shopping/type/add", itemDto);
+  }
+
 
 
 

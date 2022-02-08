@@ -19,7 +19,11 @@ import { ConfigureHouseComponent } from './configure-house/configure-house.compo
 import { TextComponent } from './elements/text/text.component';
 import { HouseControlComponent } from './house-control/house-control.component';
 import { ItemControlComponent } from './house-control/item-control/item-control.component';
-import { ItemComponent } from './house-control/item/item.component';
+import { ItemComponent } from './elements/item/item.component';
+import { ShoppingTypeComponent } from './house-control/shopping-type/shopping-type.component';
+import { AddComponent } from './elements/add/add.component';
+import { ItemTemplateComponent } from './house-control/item-template/item-template.component';
+import { ShoppingComponent } from './house-control/shopping/shopping.component';
 
 const appRoutes: Routes = [
   { path: 'configure', component: ConfigureHouseComponent, data: {animation: 'configure'}, },
@@ -29,6 +33,16 @@ const appRoutes: Routes = [
         path: 'item',
         component: ItemControlComponent,
         data: {animation: 'itemControl'}
+      },
+      {
+        path: 'shoppingType',
+        component: ShoppingTypeComponent,
+        data: {animation: 'shoppingType'}
+      },
+      {
+        path: 'shopping',
+        component: ShoppingComponent,
+        data: {animation: 'shopping'}
       }
     ]},
   { path: 'access', component: AuthHouseComponent, data: {animation: 'access'},
@@ -68,7 +82,11 @@ const appRoutes: Routes = [
     TextComponent,
     HouseControlComponent,
     ItemControlComponent,
-    ItemComponent
+    ItemComponent,
+    ShoppingTypeComponent,
+    ItemTemplateComponent,
+    AddComponent,
+    ShoppingComponent
   ],
   imports: [
     BrowserModule,

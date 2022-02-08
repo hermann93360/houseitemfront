@@ -1,0 +1,22 @@
+.l-item-house{
+  margin: 8px 8px 0 8px;
+  background-color: #dedede;
+  border-radius: 8px;
+  height: 90px;
+  cursor: pointer;
+
+  .ico{
+    margin: 5px;
+    width: 30px;
+  }
+
+  p{
+    margin: 5px;
+    color: white;
+    font-family: interRegular;
+    font-size: 11px;
+  }
+}
+.l-item-house:hover{
+  background-color: #b4b4b4;
+}
