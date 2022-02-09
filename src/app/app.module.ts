@@ -24,6 +24,7 @@ import { ShoppingTypeComponent } from './house-control/shopping-type/shopping-ty
 import { AddComponent } from './elements/add/add.component';
 import { ItemTemplateComponent } from './house-control/item-template/item-template.component';
 import { ShoppingComponent } from './house-control/shopping/shopping.component';
+import { PathLocationStrategy, LocationStrategy } from '@angular/common';
 
 const appRoutes: Routes = [
   { path: 'configure', component: ConfigureHouseComponent, data: {animation: 'configure'}, },
@@ -94,11 +95,11 @@ const appRoutes: Routes = [
     MatSliderModule,
     BrowserAnimationsModule,
     MatButtonToggleModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'}),
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
