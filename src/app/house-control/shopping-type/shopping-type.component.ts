@@ -53,7 +53,7 @@ export class ShoppingTypeComponent extends ItemTemplateComponent implements OnIn
       (value) => {
         this.shoppingTypeList = value.map((value: ItemDto) => {
           return {id_item: value.id_item, name: value.name, quantity: value.quantity}
-        })
+        }).reverse()
       }
     )
     return true;

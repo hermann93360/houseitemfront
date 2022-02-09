@@ -10,7 +10,7 @@
 
 <div class="content-all-item l-content-input flex-column margin-primary">
   <app-add (click)="displayFormItem()" ></app-add>
-  <app-item *ngFor="let item of shoppingTypeList.reverse()"
+  <app-item *ngFor="let item of shoppingTypeList"
             [name]="item.name"
             [quantity]="item.quantity"
             [id_item]="item.id_item || ''"></app-item>
