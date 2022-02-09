@@ -30,7 +30,7 @@ export class AppComponent {
 
   disHidNav(){
     this.nav?.forEach(
-      (acc) => acc.displayNavigation()
+      (acc) => acc.displayNav = false
     )
   }
 }
