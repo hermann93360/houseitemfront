@@ -22,7 +22,6 @@ export class NavComponent implements OnInit {
 
   displayNavigation(): void{
     this.displayNav = !this.displayNav;
-    console.log("fef")
   }
 
 }

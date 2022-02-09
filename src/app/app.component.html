@@ -1,4 +1,4 @@
 <app-nav class="nav"></app-nav>
-<div class="router-outlet" [@routeAnimationsFade]="prepareRoute(outlet)">
+<div (click)="disHidNav()" class="router-outlet" [@routeAnimationsFade]="prepareRoute(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>
 </div>

@@ -3,6 +3,7 @@ import {Router, RouterOutlet} from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {animate, animateChild, group, query, style, transition, trigger} from "@angular/animations";
 import {routeAuthHouseAnimamtion} from "../animations/animations";
+import {environment} from "../../environments/environment";
 
 
 @Component({
@@ -15,7 +16,9 @@ import {routeAuthHouseAnimamtion} from "../animations/animations";
 })
 export class AuthHouseComponent implements OnInit {
 
-  constructor(public router: Router, private renderer: Renderer2) { }
+  constructor(public router: Router, private renderer: Renderer2) {
+    console.log(environment.URL)
+  }
 
   ngOnInit(): void {
   }
