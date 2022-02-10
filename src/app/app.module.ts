@@ -25,10 +25,20 @@ import { AddComponent } from './elements/add/add.component';
 import { ItemTemplateComponent } from './house-control/item-template/item-template.component';
 import { ShoppingComponent } from './house-control/shopping/shopping.component';
 import { PathLocationStrategy, LocationStrategy } from '@angular/common';
+import { ShoppingItemComponent } from './house-control/shopping-item/shopping-item.component';
+import { ItemShopComponent } from './elements/item-shop/item-shop.component';
+import {AuthGuardService} from "../service/guard/auth-guard.service";
+import {FormAuthGuardService} from "../service/guard/form-auth-guard.service";
 
 const appRoutes: Routes = [
-  { path: 'configure', component: ConfigureHouseComponent, data: {animation: 'configure'}, },
-  { path: 'houseControl', component: HouseControlComponent, data: {animation: 'houseControl'},
+  { path: 'configure', component: ConfigureHouseComponent, canActivate: [AuthGuardService], data: {animation: 'configure'}, },
+  {
+    path: 'shoppingItem',
+    component: ShoppingItemComponent,
+    canActivate: [AuthGuardService],
+    data: {animation: 'shoppingItem'}
+  },
+  { path: 'houseControl', component: HouseControlComponent, canActivate: [AuthGuardService], data: {animation: 'houseControl'},
     children: [
       {
         path: 'item',
@@ -46,7 +56,7 @@ const appRoutes: Routes = [
         data: {animation: 'shopping'}
       }
     ]},
-  { path: 'access', component: AuthHouseComponent, data: {animation: 'access'},
+  { path: 'access', component: AuthHouseComponent, canActivate: [FormAuthGuardService], data: {animation: 'access'},
     children: [
       {
         path: 'connect',
@@ -87,7 +97,9 @@ const appRoutes: Routes = [
     ShoppingTypeComponent,
     ItemTemplateComponent,
     AddComponent,
-    ShoppingComponent
+    ShoppingComponent,
+    ShoppingItemComponent,
+    ItemShopComponent
   ],
   imports: [
     BrowserModule,

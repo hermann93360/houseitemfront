@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {popAnimation, windowAnimation} from "../../animations/animations";
 import {ShoppingDto} from "../../../model/shopping";
 import {ShoppingService} from "../../../service/shopping.service";
+import {Router} from "@angular/router";
+import {NavComponent} from "../../nav/nav.component";
 
 @Component({
   selector: 'app-shopping',
@@ -22,10 +24,12 @@ export class ShoppingComponent implements OnInit {
   public formAddShopping!: FormGroup;
 
   public listShopping: ShoppingDto[] = [];
+  public listShoppingArchived: ShoppingDto[] = [];
 
   public displayShoppingList: boolean = false;
 
-  constructor(private shoppingService: ShoppingService, private formBuilder: FormBuilder) { }
+  constructor(private shoppingService: ShoppingService, private formBuilder: FormBuilder, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.initFormAddShopping();
@@ -63,14 +67,20 @@ export class ShoppingComponent implements OnInit {
       this.shoppingService.addShopping(shoppingDto).subscribe(
         (value) => {
           console.log(value)
+          this.getShopping();
           this.displayForm();
         }
       )
 
     }
   }
-  displayList(){
-    this.displayShoppingList = !this.displayShoppingList;
+  displayList(id_shopping: string | undefined, name: string | undefined){
+    console.log(id_shopping)
+    this.router.navigate(['/shoppingItem',]);
+    //@ts-ignore
+    localStorage.setItem('id_shopping', id_shopping)
+    //@ts-ignore
+    localStorage.setItem('name', name)
   }
 
   searchItem(value: string){

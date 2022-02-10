@@ -7,6 +7,8 @@ import {DOCUMENT} from "@angular/common";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {InputComponent} from "../../elements/input/input.component";
+import {ShoppingService} from "../../../service/shopping.service";
+import {analyzeAndValidateNgModules} from "@angular/compiler";
 
 @Component({
   selector: 'app-item-control',
@@ -22,9 +24,16 @@ export class ItemControlComponent implements OnInit {
 
   public items: ItemDto[] = [];
 
+  public alert: string[] = [
+    'Veuillez remplir votre liste type afin de pouvoir vous générer des liste de course au besoins',
+    'Attention, certains de vos articles ont des quantités proche de 0'
+  ];
+
   public displayFormAddItem: boolean = false;
 
   public obs: any;
+
+  public displayAlertShoppingType = false;
 
   @ViewChildren(InputComponent) inputAdd: QueryList<InputComponent> | undefined;
 
@@ -32,13 +41,18 @@ export class ItemControlComponent implements OnInit {
   //@ts-ignore
   public formItem: FormGroup;
 
-  constructor(private itemService: ItemService, @Inject(DOCUMENT) private document: Document, private formBuilder: FormBuilder) {
-    this.initFormItem();
-
+  constructor(private itemService: ItemService, private shoppingService: ShoppingService, @Inject(DOCUMENT) private document: Document, private formBuilder: FormBuilder) {
+    this.shoppingService.getShoppingType(this.id_house).subscribe(
+      (value) => {
+        if(value == null)
+          this.displayAlertShoppingType = true;
+      }
+    )
   }
 
   ngOnInit(): void {
     this.getItems();
+    this.initFormItem();
   }
 
   getItems(): boolean{

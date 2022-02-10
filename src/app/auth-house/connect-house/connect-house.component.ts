@@ -54,6 +54,7 @@ export class ConnectHouseComponent implements OnInit {
       this.houseService.connectHouse(houseDto).subscribe(
         (value) => {
           this.houseService.saveIdHouse(value);
+          this.router.navigate(['/houseControl/item'])
         },
         (error) => {
           this.errorInForm();

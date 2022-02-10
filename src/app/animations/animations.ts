@@ -67,7 +67,7 @@ export const routeAuthHouseAnimamtion = trigger('routeAnimations', [
 
 
 export const routeAnimationFade = trigger('routeAnimationsFade', [
-  transition('access => configure', [
+  transition('access => configure, * <=> *', [
     query(':enter',
       [
         style({ opacity: 0 })
@@ -78,7 +78,7 @@ export const routeAnimationFade = trigger('routeAnimationsFade', [
     query(':leave',
       [
         style({ position: 'absolute', opacity: 1, width: '100%'}),
-        animate('0.5s', style({ opacity: 0 }))
+        animate('.1s', style({ opacity: 0 }))
       ],
       { optional: true }
     ),
@@ -86,7 +86,7 @@ export const routeAnimationFade = trigger('routeAnimationsFade', [
     query(':enter',
       [
         style({ position: 'absolute', opacity: 0, width: '100%', height:'100%' }),
-        animate('0.5s', style({ opacity: 1 }))
+        animate('.1s', style({ opacity: 1 }))
       ],
       { optional: true }
     )
@@ -217,20 +217,17 @@ export const upAddAnimation = trigger('up', [
     zIndex: 6,
     opacity: 1,
     bottom: '-1px',
-
   })),
   state('closed', style({
     opacity: 0,
-    zIndex: -5,
-    bottom: '-50%',
-    height: 0
+    bottom: '-20%',
 
   })),
   transition('open => closed', [
-    animate('900ms ease-out')
+    animate('2000ms cubic-bezier(0,.92,.51,1.01)')
   ]),
   transition('closed => open', [
-    animate('400ms ease-out')
+    animate('300ms cubic-bezier(0,.92,.51,1.01)')
   ]),
 
 ])
@@ -257,6 +254,22 @@ export const windowAnimation = trigger('windowAnimation', [
 
   ]),
 
+])
+
+export const fadeItemRemoveAnimation = trigger('fadeItemRemove', [
+  transition(':enter', [
+    group([
+        query(".l-item-house",[
+          style({
+            opacity: 0
+          }),
+          animate('550ms cubic-bezier(.65,.3,.24,1.64)', style({
+            opacity: 1,
+          })),
+        ]),
+
+    ])
+  ])
 ])
 
 export const popAnimation = trigger('pop', [

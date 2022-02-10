@@ -4,9 +4,33 @@
     <img *ngIf="displayNav" class="ico-nav" src="https://img.icons8.com/ios-filled/50/000000/delete-sign--v1.png"/>
   </div >
 
-  <div [@nav] = "displayNav? 'open' : 'closed' " class="nav-abs">
+  <div [@nav] = "displayNav? 'open' : 'closed' " class="nav-abs" (click)="displayNavigation()">
     <div class="flex-column l-content-input nav-content margin-primary">
+      <div [routerLink]="['/houseControl/item']" class="l-item flex-column center-flex center-flex-dir">
+        <img src="https://img.icons8.com/stickers/100/000000/house.png"/>
+        <p>Articles</p>
+      </div>
+
+      <div [routerLink]="['/houseControl/shopping']" class="l-item flex-column center-flex center-flex-dir">
+        <img src="https://img.icons8.com/stickers/100/000000/shopping-cart.png"/>
+        <p>Course</p>
+      </div>
+
       <div class="l-item flex-column center-flex center-flex-dir">
+        <img src="https://img.icons8.com/stickers/100/000000/about.png"/>
+        <p>Informations</p>
+      </div>
+
+      <div (click)="logoutHouse()" class="l-item l-item-red flex-column center-flex center-flex-dir">
+        <img src="https://img.icons8.com/stickers/100/000000/close-window.png"/>
+        <p>Quitter</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-abs nav-desk">
+    <div class="flex-column l-content-input nav-content margin-primary">
+      <div [routerLink]="['/houseControl/item']" class="l-item flex-column center-flex center-flex-dir">
         <img src="https://img.icons8.com/stickers/100/000000/house.png"/>
         <p>Articles</p>
       </div>

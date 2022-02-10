@@ -4,36 +4,37 @@
 </div>
 
 <div (click)="displayForm()" class="l-content-input margin-primary flex-column center-flex-dir">
-  <fa-button value="faire ma liste de course" icone="https://img.icons8.com/stickers/100/000000/shopping-cart.png"></fa-button>
+  <fa-button value="faire une liste de course" icone="https://img.icons8.com/stickers/100/000000/shopping-cart.png"></fa-button>
 </div>
 
 <p class="litle-title spaceTop flex-row center-flex">
-  Ma course à faire
+  Mes course à faire
   <img class="ico" src="https://img.icons8.com/stickers/100/000000/shopping-bag.png"/>
 </p>
 
 
-<div class="l-content-input flex-column margin-primary">
+<div *ngIf="listShopping.length != 0" class="l-content-input flex-column margin-primary">
   <div *ngFor="let shopping of listShopping" class="shopping">
     <div class="h-shopping">
       {{shopping.name}}
     </div>
-    <div class="f-shopping" (click)="displayList()">
+    <div class="f-shopping" (click)="displayList(shopping.id_shopping, shopping.name)">
       Voir
     </div>
-
-    <div @windowAnimation *ngIf="displayShoppingList" class="course">
-      <div class="container-course">
-        {{shopping.name}}
-      </div>
-    </div>
   </div>
+</div>
+<div *ngIf="listShopping.length == 0" class="l-content-input no-exist-item margin-primary">
+  <p class="shopping-archive"> Vous n'avez aucune course </p>
 </div>
 
 <p class="litle-title spaceTop flex-row center-flex">
   Mes courses archivé
   <img class="ico" src="https://img.icons8.com/stickers/100/000000/shopping-bag.png"/>
 </p>
+
+<div *ngIf="listShoppingArchived.length == 0" class="l-content-input no-exist-item margin-primary">
+  <p class="shopping-archive"> Vous n'avez aucune course archivé </p>
+</div>
 
 <div class="container" [@pop]="displayFormAddShopping ? 'open' : 'closed' " *ngIf="displayFormAddShopping" >
   <div class="bg">

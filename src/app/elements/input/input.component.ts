@@ -69,9 +69,13 @@ export class InputComponent implements ControlValueAccessor, OnInit {
 
     if(value.length == 0){
       this.changeAppearanceInputError();
+      setTimeout(()=> {
+        this.changeAppearanceInputValid()
+      }, 1000)
     }
     else{
       this.changeAppearanceInputValid();
+
     }
   }
 

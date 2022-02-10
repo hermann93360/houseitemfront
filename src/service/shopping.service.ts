@@ -4,13 +4,14 @@ import {Observable} from "rxjs";
 import {ItemDto} from "../model/item";
 import {ShoppingTypeComponent} from "../app/house-control/shopping-type/shopping-type.component";
 import {ShoppingDto, ShoppingTypeDto} from "../model/shopping";
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingService {
 
-  private URL = "http://192.168.1.9:8080";
+  private URL = environment.URL;
 
   constructor(private http: HttpClient) { }
 

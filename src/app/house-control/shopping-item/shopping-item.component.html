@@ -1,0 +1,47 @@
+<div class="item-shop">
+  <div [routerLink]="['/houseControl/shopping']" class="close">
+    <img class="ico" src="https://img.icons8.com/ios-filled/50/000000/delete-sign--v1.png"/>
+  </div>
+  <p class="list-shopping litle-title"> Liste de course : <span class="t-shop">{{name}}</span></p>
+
+  <div class="l-content-input flex-column">
+    <fa-input #search (keyup)="searchItem(search.value)" type="text" placeholder="Rechercher dans la liste"></fa-input>
+  </div>
+
+  <div  class="l-content-input margin-primary flex-column center-flex-dir">
+    <fa-button *ngIf="listItemShopping.length == 0" (click)="generateList()"value="Generer la liste" icone="https://img.icons8.com/stickers/100/000000/shopping-cart.png"></fa-button>
+    <fa-button *ngIf="listItemShopping.length != 0" (click)="generateList()"value="Archiver la liste" icone="https://img.icons8.com/stickers/100/000000/shopping-cart.png"></fa-button>
+  </div>
+
+  <div class="content-all-item l-content-input flex-column margin-primary">
+    <app-add (click)="displayFormItem()"></app-add>
+    <app-item-shop *ngFor="let item of listItemShopping"
+              [name]="item.name"
+              [quantity]="item.quantity"
+              [id_item]="item.id_item || ''"></app-item-shop>
+  </div>
+
+  <div *ngIf="listItemShopping.length == 0 && findItemFromSearch" class="no-exist-item flex-column center-flex center-flex-dir margin-primary">
+    <p class=""> Votre liste est vide, ajoutez un article dans votre liste ou générez en une </p>
+  </div>
+
+  <div *ngIf="!findItemFromSearch" class="no-exist-item flex-column center-flex center-flex-dir margin-primary">
+    <p class="">"{{search.value}}" n'est pas dans votre liste de course, cliquez en haut pour le rajouter</p>
+  </div>
+
+</div>
+
+<div [@up]="displayFormAddItem ? 'open' : 'closed' "  class="l-form-item">
+  <div (click)="displayFormItem()"  class="close">
+    <img class="ico" src="https://img.icons8.com/ios-filled/50/000000/delete-sign--v1.png"/>
+  </div>
+
+  <h4 class="litle-title flex-row center-flex margin-primary">Ajoutez un nouvelle article a la liste
+    <img class="ico" src="https://img.icons8.com/stickers/100/000000/plus.png"/>
+  </h4>
+  <form class="" [formGroup]="formItem" >
+    <fa-input type="text" placeholder="Nom de l'article" identification="addButton" formControlName="name"></fa-input>
+    <fa-input type="number" placeholder="Quantité" identification="addButton" formControlName="quantity"></fa-input>
+    <fa-button (click)="addItem($event)" value="Ajouter" icone="https://img.icons8.com/stickers/100/000000/geta.png"></fa-button>
+  </form>
+</div>

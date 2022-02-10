@@ -28,9 +28,6 @@
             [quantity]="item.quantity"
             [id_item]="item.id_item || ''"></app-item>
 
-  <div *ngIf="items.length > 0" class="flex-row center-flex-dir pagination">
-    <p> Voir plus </p>
-  </div>
 </div>
 
 <div [@up]="displayFormAddItem ? 'open' : 'closed' " class="l-form-item">

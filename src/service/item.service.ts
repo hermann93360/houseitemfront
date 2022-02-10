@@ -3,13 +3,15 @@ import {HttpClient} from "@angular/common/http";
 import {HouseDto} from "../model/house";
 import {Observable} from "rxjs";
 import {ItemDto} from "../model/item";
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  private URL = "http://192.168.1.9:8080";
+  private URL = environment.URL;
+
 
   constructor(private http: HttpClient) { }
 
@@ -29,12 +31,36 @@ export class ItemService {
     return this.http.get<ItemDto[]>(this.URL + "/items/shopping/type/" + id_shopping + "/" + name);
   }
 
+  getItemsByNameAndShopping(id_shopping: string, name: string): Observable<ItemDto[]>{
+    return this.http.get<ItemDto[]>(this.URL + "/items/shopping/" + id_shopping + "/" + name);
+  }
+
+  getItemsByShopping(id_shopping: string): Observable<ItemDto[]>{
+    return this.http.get<ItemDto[]>(this.URL + "/items/shopping/" + id_shopping);
+  }
+
   addItem(itemDto: ItemDto): Observable<ItemDto>{
     return this.http.post<ItemDto>(this.URL + "/item/add", itemDto);
   }
 
   addItemInShoppingListType(itemDto: ItemDto): Observable<ItemDto>{
     return this.http.post<ItemDto>(this.URL + "/item/shopping/type/add", itemDto);
+  }
+
+  addItemInShopping(itemDto: ItemDto): Observable<ItemDto>{
+    return this.http.post<ItemDto>(this.URL + "/item/shopping/add", itemDto);
+  }
+
+  addItemInShoppingListGenerate(id_house: string, id_shopping: string): Observable<ItemDto[]>{
+    return this.http.get<ItemDto[]>(this.URL + "/item/shopping/generate/" + id_house + "/" + id_shopping);
+  }
+
+  updateItem(id_item: string, itemDto: ItemDto): Observable<ItemDto>{
+    return this.http.put<ItemDto>(this.URL + "/items/" + id_item, itemDto);
+  }
+
+  removeItem(id_item: string): Observable<ItemDto>{
+    return this.http.delete<ItemDto>(this.URL + "/items/" + id_item);
   }
 
 

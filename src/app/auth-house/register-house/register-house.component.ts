@@ -61,7 +61,12 @@ export class RegisterHouseComponent implements OnInit {
 
         this.houseService.addHouse(houseDto).subscribe(
           (value) => {
-            this.router.navigate(['/configure']);
+            this.houseService.connectHouse(houseDto).subscribe(
+              (value) => {
+                this.houseService.saveIdHouse(value)
+                this.router.navigate(['/configure']);
+              }
+            )
           },
           (error) => {
             this.errorInForm();

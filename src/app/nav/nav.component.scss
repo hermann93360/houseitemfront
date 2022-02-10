@@ -3,6 +3,9 @@ nav{
     z-index: 1;
   }
 }
+.nav-desk{
+  display: none;
+}
 .bg-black-nav{
   position: absolute;
   height: 100%;
@@ -19,8 +22,10 @@ nav{
   cursor: pointer;
 }
 .nav-abs{
+  left: -100%;
+
   position: absolute;
-  z-index: 4;
+  z-index: 2;
 
   .nav-content{
     background-color: #e3e3e3;
@@ -60,7 +65,15 @@ nav{
 }
 
 @media screen and (min-width: 750px) {
-  .nav-abs{
+  nav{
+    .p-nav{
+      display: none;
+    }
+  }
+  .nav-desk{
+    left: 0px;
+    display: flex;
+    /*
     .nav-content{
       height: 300px;
       .l-item{
@@ -74,7 +87,7 @@ nav{
           margin-top: 5px;
         }
       }
-    }
+    }*/
   }
 
   h4{
