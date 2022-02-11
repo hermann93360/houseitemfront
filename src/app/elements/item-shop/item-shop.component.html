@@ -1,15 +1,14 @@
 <div class="l-item-house flex-row center-flex center-flex-dir">
-  <img class="ico" src="https://img.icons8.com/stickers/100/000000/minus-math.png" alt="less">
+  <img (click)="allInBasket()" class="ico" src="https://img.icons8.com/stickers/100/000000/add-shopping-cart--v2.png" alt="add">
 
   <div class="item-content flex-column center-flex">
     <p>{{name}}</p>
     <div class="flex-row center-flex-dir center-flex">
-      <span class="text">Vous devez en acheter encore </span>
+      <span class="text">Vous devez en acheter </span>
       <div class="counter">
         {{quantity}}
       </div>
     </div>
   </div>
-  <img class="ico" src="https://img.icons8.com/stickers/100/000000/add-shopping-cart--v2.png" alt="add">
 
 </div>

@@ -29,6 +29,8 @@ import { ShoppingItemComponent } from './house-control/shopping-item/shopping-it
 import { ItemShopComponent } from './elements/item-shop/item-shop.component';
 import {AuthGuardService} from "../service/guard/auth-guard.service";
 import {FormAuthGuardService} from "../service/guard/form-auth-guard.service";
+import { ItemBuyComponent } from './elements/item-buy/item-buy.component';
+import { NavHomeComponent } from './elements/nav-home/nav-home.component';
 
 const appRoutes: Routes = [
   { path: 'configure', component: ConfigureHouseComponent, canActivate: [AuthGuardService], data: {animation: 'configure'}, },
@@ -99,7 +101,9 @@ const appRoutes: Routes = [
     AddComponent,
     ShoppingComponent,
     ShoppingItemComponent,
-    ItemShopComponent
+    ItemShopComponent,
+    ItemBuyComponent,
+    NavHomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+<div class="l-item-house flex-row center-flex center-flex-dir">
+  <img (click)="removeBasquet()" class="ico" src="https://img.icons8.com/stickers/100/000000/minus-math.png" alt="retirer du panier">
+
+  <div class="item-content flex-column center-flex">
+    <p>{{name}}</p>
+    <div class="flex-row center-flex-dir center-flex">
+      <span class="text"> Vous en avez </span>
+      <div class="counter">
+        {{quantity}}
+      </div>
+      <span class="text"> dans votre panier </span>
+    </div>
+  </div>
+
+</div>

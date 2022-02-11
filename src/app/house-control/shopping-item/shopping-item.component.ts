@@ -24,6 +24,7 @@ export class ShoppingItemComponent extends ItemTemplateComponent implements OnIn
   public name = localStorage.getItem('name');
 
   public listItemShopping: ItemDto[] = []
+  public listItemShoppingBuy: ItemDto[] = []
 
   public findItemFromSearch: boolean = true;
 
@@ -40,6 +41,7 @@ export class ShoppingItemComponent extends ItemTemplateComponent implements OnIn
   ngOnInit(): void {
     super.initFormItem();
     this.getItems();
+    this.getItemsBuy();
 
   }
 
@@ -66,6 +68,16 @@ export class ShoppingItemComponent extends ItemTemplateComponent implements OnIn
       }
     )
     return true;
+  }
+
+  getItemsBuy(){
+    this.itemService.getItemsBuy(this.id_shopping).subscribe(
+      (value) => {
+        this.listItemShoppingBuy = value.map((value: ItemDto) => {
+          return {id_item: value.id_item, name: value.name, quantity: value.quantity}
+        }).reverse()
+      }
+    )
   }
 
   protected sendItem() {
@@ -105,5 +117,12 @@ export class ShoppingItemComponent extends ItemTemplateComponent implements OnIn
       this.findItemFromSearch = true;
     }
   }
+
+  receiptItemAddedOrRemoved(): void {
+    this.getItems();
+    this.getItemsBuy();
+    console.log("emit")
+  }
+
 
 }

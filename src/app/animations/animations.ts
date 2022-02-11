@@ -220,11 +220,11 @@ export const upAddAnimation = trigger('up', [
   })),
   state('closed', style({
     opacity: 0,
-    bottom: '-20%',
+    bottom: '-300px',
 
   })),
   transition('open => closed', [
-    animate('2000ms cubic-bezier(0,.92,.51,1.01)')
+    animate('1000ms cubic-bezier(0,.92,.51,1.01)')
   ]),
   transition('closed => open', [
     animate('300ms cubic-bezier(0,.92,.51,1.01)')
