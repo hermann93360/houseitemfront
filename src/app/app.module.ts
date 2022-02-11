@@ -32,6 +32,8 @@ import {FormAuthGuardService} from "../service/guard/form-auth-guard.service";
 import { ItemBuyComponent } from './elements/item-buy/item-buy.component';
 import { NavHomeComponent } from './elements/nav-home/nav-home.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: 'configure', component: ConfigureHouseComponent, canActivate: [AuthGuardService], data: {animation: 'configure'}, },
@@ -115,7 +117,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'}),
     ReactiveFormsModule,
     HttpClientModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [{provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]

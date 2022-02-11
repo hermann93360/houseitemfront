@@ -70,7 +70,7 @@ export class ItemComponent implements OnInit {
     this.itemInShopping = true;
     this.shoppingService.getShopping(this.houseService.getIdHouse()).subscribe(
       (value) => {
-        if(value == null || value == []){
+        if(value == null || value.length == 0){
           console.log("1")
           const shoppingDto: ShoppingDto = new ShoppingDto(
             "COURSE",
