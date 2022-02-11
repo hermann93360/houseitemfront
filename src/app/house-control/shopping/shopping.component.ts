@@ -5,6 +5,8 @@ import {ShoppingDto} from "../../../model/shopping";
 import {ShoppingService} from "../../../service/shopping.service";
 import {Router} from "@angular/router";
 import {NavComponent} from "../../nav/nav.component";
+import {ItemService} from "../../../service/item.service";
+import {coerceStringArray} from "@angular/cdk/coercion";
 
 @Component({
   selector: 'app-shopping',
@@ -26,9 +28,11 @@ export class ShoppingComponent implements OnInit {
   public listShopping: ShoppingDto[] = [];
   public listShoppingArchived: ShoppingDto[] = [];
 
+  public testi!: number;
+
   public displayShoppingList: boolean = false;
 
-  constructor(private shoppingService: ShoppingService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private itemService: ItemService, private shoppingService: ShoppingService, private formBuilder: FormBuilder, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -39,10 +43,23 @@ export class ShoppingComponent implements OnInit {
   getShopping(): void{
     this.shoppingService.getShopping(this.id_house).subscribe(
       (value) => {
-        this.listShopping = value.map((value: ShoppingDto) => {
-          return {name: value.name, id_shopping: value.id_shopping}
+        this.listShopping = value.reverse().map((valuez: ShoppingDto) => {
+          return {name: valuez.name, id_shopping: valuez.id_shopping}
         })
-        console.log(value)
+        this.listShopping.forEach((acc) => {
+          //@ts-ignore
+          this.itemService.getItemsByShopping(acc.id_shopping).subscribe(
+            (value) => {
+                acc.numberItem = value.length
+            }
+          )
+          //@ts-ignore
+          this.itemService.getItemsBuy(acc.id_shopping).subscribe(
+            (value) => {
+              acc.numberItemInBask = value.length
+            }
+          )
+        })
       }
     )
   }
@@ -85,6 +102,22 @@ export class ShoppingComponent implements OnInit {
 
   searchItem(value: string){
 
+  }
+
+  getInfoAboutShopping(id_shopping: any){
+    let numberItemBasket;
+    let numberItem: number;
+    this.itemService.getItemsBuy(id_shopping).subscribe(
+      (value) => {
+         this.testi = value.length;
+      }
+    )
+
+
+  }
+
+  getProgress(number1: any, number2: any){
+    return number1 * 100 / (number1 + number2)
   }
 
 }

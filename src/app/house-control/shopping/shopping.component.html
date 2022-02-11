@@ -14,15 +14,41 @@
 
 
 <div *ngIf="listShopping.length != 0" class="l-content-input flex-column margin-primary">
-  <div *ngFor="let shopping of listShopping" class="shopping">
-    <div class="h-shopping">
-      {{shopping.name}}
+  <div *ngFor="let shopping of listShopping" class="shopping flex-row" (click)="displayList(shopping.id_shopping, shopping.name)">
+    <div class="left-c">
+      <div class="text-c">
+        COURSE
+      </div>
+      <div class="name-shopping">
+        {{shopping.name}}
+      </div>
+      <div class="view flex-row center-flex">
+        <p>Voir votre course</p> <img class="ico" src="assets/arrowRight.png">
+      </div>
     </div>
-    <div class="f-shopping" (click)="displayList(shopping.id_shopping, shopping.name)">
-      Voir
+    <div class="right-c">
+      <div class="text-c">
+        EVOLUTION DE VOTRE COURSE
+        <mat-progress-bar class="progress" mode="determinate" [value]="getProgress(shopping.numberItemInBask, shopping.numberItem)"></mat-progress-bar>
+
+        <div class="information">
+          <div class="sec flex-row center-flex">
+            <p class="description">Nom d'article à acheter : </p><p class="number">{{shopping.numberItem}}</p>
+          </div>
+
+          <div class="sec flex-row center-flex">
+            <p class="description">Nom d'article dans le panier : </p><p class="number">{{shopping.numberItemInBask}}</p>
+          </div>
+        </div>
+
+        <div class="delete">
+          <img class="ico"src="https://img.icons8.com/stickers/100/000000/delete-forever.png"/>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 <div *ngIf="listShopping.length == 0" class="l-content-input no-exist-item margin-primary">
   <p class="shopping-archive"> Vous n'avez aucune course </p>
 </div>

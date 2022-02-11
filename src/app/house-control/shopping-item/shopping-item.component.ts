@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ShoppingDto} from "../../../model/shopping";
 import {ItemDto} from "../../../model/item";
@@ -9,6 +9,8 @@ import {ItemTemplateComponent} from "../item-template/item-template.component";
 import {DOCUMENT} from "@angular/common";
 import {FormBuilder} from "@angular/forms";
 import {upAddAnimation} from "../../animations/animations";
+import {NavComponent} from "../../nav/nav.component";
+import {ButtonComponent} from "../../elements/button/button.component";
 
 @Component({
   selector: 'app-shopping-item',
@@ -22,6 +24,8 @@ export class ShoppingItemComponent extends ItemTemplateComponent implements OnIn
 
   public id_shopping: any = localStorage.getItem('id_shopping');
   public name = localStorage.getItem('name');
+
+  @ViewChildren(ButtonComponent) btn: QueryList<ButtonComponent> | undefined;
 
   public listItemShopping: ItemDto[] = []
   public listItemShoppingBuy: ItemDto[] = []
@@ -46,10 +50,22 @@ export class ShoppingItemComponent extends ItemTemplateComponent implements OnIn
   }
 
   generateList(){
+    this.btn?.forEach((acc) => {
+      let load = "."
+      acc.icone = "https://img.icons8.com/stickers/100/000000/spinner-frame-1.png"
+      setInterval(()=>{
+        acc.value = "" + load
+        load = load + "."
+        if(load.length == 4)
+          load = "."
+      }, 500)
+    })
     //@ts-ignore
         this.itemService.addItemInShoppingListGenerate(this.id_house, this.id_shopping).subscribe(
           (value) => {
-            console.log(value)
+            console.log("fefe")
+            this.getItems();
+            this.getItemsBuy();
           }
         )
   }

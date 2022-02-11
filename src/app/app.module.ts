@@ -31,6 +31,7 @@ import {AuthGuardService} from "../service/guard/auth-guard.service";
 import {FormAuthGuardService} from "../service/guard/form-auth-guard.service";
 import { ItemBuyComponent } from './elements/item-buy/item-buy.component';
 import { NavHomeComponent } from './elements/nav-home/nav-home.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 const appRoutes: Routes = [
   { path: 'configure', component: ConfigureHouseComponent, canActivate: [AuthGuardService], data: {animation: 'configure'}, },
@@ -113,7 +114,8 @@ const appRoutes: Routes = [
     MatButtonToggleModule,
     RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'}),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule
   ],
   providers: [{provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]

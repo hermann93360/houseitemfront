@@ -28,6 +28,7 @@ export class ItemComponent implements OnInit {
   private itemDto!: ItemDto;
 
   public itemRemoved: boolean = false;
+  public itemInShopping: boolean = false;
 
   constructor(private itemService: ItemService,
               private houseService: HouseService,
@@ -66,6 +67,7 @@ export class ItemComponent implements OnInit {
   }
 
   addItemRemovedInShopping(){
+    this.itemInShopping = true;
     this.shoppingService.getShopping(this.houseService.getIdHouse()).subscribe(
       (value) => {
         if(value == null || value == []){

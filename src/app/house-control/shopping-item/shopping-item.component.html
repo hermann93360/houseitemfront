@@ -10,9 +10,8 @@
 
   <div  class="l-content-input margin-primary flex-column center-flex-dir">
     <fa-button *ngIf="listItemShopping.length == 0" (click)="generateList()"value="Generer la liste" icone="https://img.icons8.com/stickers/100/000000/shopping-cart.png"></fa-button>
-    <fa-button *ngIf="listItemShopping.length != 0" (click)="generateList()"value="Archiver la liste" icone="https://img.icons8.com/stickers/100/000000/shopping-cart.png"></fa-button>
+    <fa-button *ngIf="listItemShopping.length != 0" (click)="generateList()"value="Supprimer la liste" icone="https://img.icons8.com/stickers/100/000000/shopping-cart.png"></fa-button>
   </div>
-
   <div class="content-all-item l-content-input flex-column margin-primary">
     <app-add (click)="displayFormItem()"></app-add>
     <app-item-shop (itemInBasket)="receiptItemAddedOrRemoved()" *ngFor="let item of listItemShopping"

@@ -39,27 +39,82 @@
   opacity: 0.4;
 }
 .shopping{
-  .h-shopping{
+  cursor: pointer;
+  .left-c{
     background-image: url("../../../assets/mag.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position-y: center;
     background-position-x: center;
-    padding: 10px;
-    border-radius: 5px 5px 0 0;
-    font-family: couture;
-    color: white;
-  }
-  .f-shopping{
-    background-color: #112632;
-    border-radius: 0 0 5px 5px ;
-    padding: 5px;
-    font-family: montLight;
-    font-size: 12px;
-    color: white;
+    width: 40%;
+    height: 80px;
+    border-radius: 5px 0px 0px 5px;
+    .name-shopping{
+      margin: 15px;
+      font-family: couture;
+      font-size: 16px;
+      color: white;
+    }
+    .text-c{
+      color: white;
+    }
+    .view{
+      margin: 4px;
 
-
+      p{
+        font-size: 10px;
+        font-family: interRegular;
+        color: white;
+      }
+      .ico{
+        width: 10px;
+      }
+    }
   }
+  .right-c{
+    position: relative;
+    background-color: white;
+    width: 60%;
+    border-radius: 0px 5px 5px 0px;
+    .progress{
+      margin-top: 5px;
+      height: 7px;
+    }
+
+    .information{
+      margin-top: 10px;
+      .description{
+        width: 80%;
+      }
+      .number{
+        font-family: couture;
+        font-size: 12px;
+      }
+      p{
+        color: black;
+        font-family: comfortaLight;
+      }
+    }
+
+    .delete{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 5px;
+      .ico{
+        width: 20px;
+      }
+    }
+    .text-c{
+      color: #aaaaaa;
+    }
+  }
+  .text-c{
+    font-family: interRegular;
+    font-size: 10Px;
+    margin: 4px;
+  }
+
   .course{
     .container-course{
       background: white;

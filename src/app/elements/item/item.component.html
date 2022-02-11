@@ -9,7 +9,7 @@
     <img class="ico" (click)="addOneItem()" src="https://img.icons8.com/stickers/100/000000/plus-math.png" alt="add">
   </div>
 
-<div *ngIf="itemRemoved" @fadeItemRemove (click)="addItemRemovedInShopping()">
+<div *ngIf="itemRemoved && !itemInShopping" @fadeItemRemove (click)="addItemRemovedInShopping()">
   <div  class="l-item-house flex-row center-flex center-flex-dir">
     <div class="flex-row center-flex-dir center-flex">
       <img class="icoWarning" src="https://img.icons8.com/stickers/100/000000/high-priority.png"/>
@@ -18,3 +18,12 @@
     </div>
   </div>
 </div>
+
+  <div *ngIf="itemInShopping" @fadeItemRemove >
+    <div  class="l-item-house flex-row center-flex center-flex-dir">
+      <div class="flex-row center-flex-dir center-flex">
+        <img class="icoWarning" src="https://img.icons8.com/stickers/100/000000/checkmark.png"/>
+        <span class="text">Parfait l'article a été rajouté dans votre dernière liste de course</span>
+      </div>
+    </div>
+  </div>
