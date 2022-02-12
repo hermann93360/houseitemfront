@@ -3,7 +3,6 @@ WORKDIR /app
 COPY . .
 RUN npm install -g @angular/cli
 RUN npm install
-RUN ng add @angular/pwa
 RUN ng build --configuration=production
 
 FROM nginx:1.17.1-alpine
