@@ -5,7 +5,7 @@
   "background_color": "#fff",
   "display": "fullscreen",
   "scope": "./",
-  "start_url": "./",
+  "start_url": "./index.html/houseControl/item",
   "icons": [
     {
       "src": "assets/icon.png",
