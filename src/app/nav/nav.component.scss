@@ -3,8 +3,9 @@ nav{
     z-index: 1;
   }
   .logo-responsive{
-    position: absolute;
     display: flex;
+    position: absolute;
+    flex-direction: column;
     right: 0;
     margin: 10px;
     img{
@@ -19,8 +20,8 @@ nav{
   .texture{
     position: absolute;
     z-index: -1;
-    top: -68px;
-    right: -88px;
+    top: 0px;
+    right: 0px;
     img{
       width: 300px;
     }
