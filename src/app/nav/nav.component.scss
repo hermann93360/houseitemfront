@@ -12,8 +12,17 @@ nav{
     }
   }
   @media screen and (min-width: 750px) {
-    .logo-responsive{
+    .logo-responsive, .texture{
       display: none;
+    }
+  }
+  .texture{
+    position: absolute;
+    z-index: -1;
+    top: -68px;
+    right: -88px;
+    img{
+      width: 200px;
     }
   }
 }
