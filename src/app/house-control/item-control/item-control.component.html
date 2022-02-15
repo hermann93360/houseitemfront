@@ -6,10 +6,9 @@
 <div class="margin-primary l-notification flex-column">
   <div class="n-header flex-column">
     <h4>Mes alertes</h4>
-    <p>Afin de vous prévenir quand est ce qu'il est temps de faire les course
-      Remplissez votre liste de type</p>
+    <p>Pensez bien à tenir à jour votre inventaire ainsi que votre liste de course type</p>
   </div>
-  <div class="n-footer flex-row center-flex">
+  <div [routerLink]="['/houseControl/shoppingType']" class="n-footer flex-row center-flex">
     <p> Remplir </p>
     <img  class="ico" src="assets/arrowRight.png" alt="arrow">
   </div>
@@ -23,6 +22,7 @@
 
 <div class="content-all-item l-content-input flex-column margin-primary">
   <app-add (click)="displayFormItem()" ></app-add>
+
   <app-item *ngFor="let item of items"
             [name]="item.name"
             [quantity]="item.quantity"

@@ -1,15 +1,15 @@
 {
-  "name": "Houfffse - Item",
+  "name": "House - Item",
   "short_name": "House",
-  "theme_color": "#004096",
-  "background_color": "#fafafa",
+  "theme_color": "#fff",
+  "background_color": "#fff",
   "display": "fullscreen",
   "scope": "./",
   "start_url": "./",
   "icons": [
     {
-      "src": "assets/logo-white.png",
-      "sizes": "512x512",
+      "src": "assets/icon.png",
+      "sizes": "180x180",
       "type": "image/png",
       "purpose": "maskable any"
     }

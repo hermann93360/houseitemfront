@@ -6,15 +6,15 @@
 
   <fa-text  class="underNav" title="Merci d'utiliser HouseItem Pour vous organiser"
            titleImg="https://img.icons8.com/stickers/100/000000/pin3.png"
-           text="Afin de pouvoir vous generer une liste de course
-                 en fonction de vous, nous vous demandons de nous dire qu'est ce
-                 qu'ils vous faut la plus part du temps chez vous.
-                 Comme ça vous n'aurez plus à réflechir à votre liste de course la
+           text="Afin de pouvoir vous génerer une liste de course
+                 en fonction de vos attentes, nous vous demandons de nous informer sur ce que vous achetez
+                 habituellement lorsque vous faites vos courses.
+                Vous n'aurez donc plus à réflechir à votre liste de course la
                  prochaine fois ! Pas mal non ?" ></fa-text>
 
   <div class="l-section">
     <div class="flex-row l-content-input l-button-configure margin-primary">
-      <fa-button class="flex-item-50" value="Remplir" icone="https://img.icons8.com/stickers/100/000000/present.png"></fa-button>
+      <fa-button [routerLink]="['/houseControl/shoppingType']" class="flex-item-50" value="Remplir" icone="https://img.icons8.com/stickers/100/000000/present.png"></fa-button>
       <fa-button [routerLink]="['/houseControl/item']" class="flex-item-50" value="Ulterieument" icone="https://img.icons8.com/stickers/100/000000/edit-calendar.png"></fa-button>
     </div>
   </div>

@@ -24,11 +24,6 @@ export class ItemControlComponent implements OnInit {
 
   public items: ItemDto[] = [];
 
-  public alert: string[] = [
-    'Veuillez remplir votre liste type afin de pouvoir vous générer des liste de course au besoins',
-    'Attention, certains de vos articles ont des quantités proche de 0'
-  ];
-
   public displayFormAddItem: boolean = false;
 
   public obs: any;

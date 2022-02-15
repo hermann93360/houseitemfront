@@ -2,6 +2,20 @@ nav{
   div{
     z-index: 1;
   }
+  .logo-responsive{
+    position: absolute;
+    display: flex;
+    right: 0;
+    margin: 10px;
+    img{
+      width: 100px;
+    }
+  }
+  @media screen and (min-width: 750px) {
+    .logo-responsive{
+      display: none;
+    }
+  }
 }
 .nav-desk{
   display: none;
